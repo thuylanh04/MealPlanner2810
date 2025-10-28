@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meal Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-logo">
+                <span class="logo-icon">🍽️</span>
+                <span class="logo-text">Meal Planner</span>
+            </div>
+            <div class="navbar-search">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search meals or recipes..."
+                >
+                <button class="search-btn">🔍</button>
+            </div>
+            <button class="add-meal-btn" id="addMealBtn">+ Add New Meal</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Meals Grid -->
+        <section class="meals-section">
+            <h1 class="section-title">Your Meals</h1>
+            <div class="meals-grid" id="mealsGrid">
+                <!-- Meal cards will be inserted here by JavaScript -->
+            </div>
+            <div class="empty-state" id="emptyState">
+                <div class="empty-icon">🍽️</div>
+                <h2>No Meals Yet</h2>
+                <p>Start by adding your first meal to get started!</p>
+                <button class="add-meal-btn" id="addMealBtnEmpty">+ Add New Meal</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Add/Edit Meal Modal -->
+    <div class="modal" id="mealModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Meal</h2>
+                <button class="modal-close" id="closeModalBtn">&times;</button>
+            </div>
+            <form id="mealForm" class="meal-form">
+                <div class="form-group">
+                    <label for="mealName">Meal Name *</label>
+                    <input 
+                        type="text" 
+                        id="mealName" 
+                        name="name" 
+                        placeholder="e.g., Grilled Chicken Salad"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="mealDescription">Description *</label>
+                    <textarea 
+                        id="mealDescription" 
+                        name="description" 
+                        placeholder="Describe your meal..."
+                        rows="3"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="mealCategory">Category *</label>
+                        <select id="mealCategory" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="breakfast">Breakfast</option>
+                            <option value="lunch">Lunch</option>
+                            <option value="dinner">Dinner</option>
+                            <option value="snack">Snack</option>
+                            <option value="dessert">Dessert</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mealCalories">Calories *</label>
+                        <input 
+                            type="number" 
+                            id="mealCalories" 
+                            name="calories" 
+                            placeholder="e.g., 350"
+                            min="0"
+                            required
+                        >
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mealImage">Image URL</label>
+                    <input 
+                        type="url" 
+                        id="mealImage" 
+                        name="image" 
+                        placeholder="https://example.com/image.jpg"
+                    >
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-cancel" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn-submit">Save Meal</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
